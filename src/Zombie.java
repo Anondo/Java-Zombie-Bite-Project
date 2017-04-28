@@ -22,6 +22,7 @@ public class Zombie extends JLabel{
 				{
 					die();
 					dead = true;
+					ZombieBite.scoreUp();
 				}
 				else
 				{

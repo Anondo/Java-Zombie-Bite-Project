@@ -10,8 +10,8 @@ public class ZombieBite extends JFrame{
 	private Timer gameTime;
 	private int zombieCounter = 0;
 	private int zombieBorn;
-	private int score = 0;
-	private JLabel scoreLabel = new JLabel("Score: 0");
+	private static int score = 0;
+	private static JLabel scoreLabel = new JLabel("Score: 0");
 	private JLabel[] life;
 	
 	public ZombieBite()
@@ -77,11 +77,6 @@ public class ZombieBite extends JFrame{
 					zombie[i].walkAndJump();
 			}
 	    }
-		if(zombie[zombieCounter].isDead())
-		{
-			score += 10;
-			scoreLabel.setText("Score: " + score);
-		}
 		if(zombie[zombieCounter].kills() || zombie[zombieCounter].isDead())
 		{
 			zombie[zombieCounter].resurrect();
@@ -125,8 +120,9 @@ public class ZombieBite extends JFrame{
 	    	
 	    }
 	}
-	public void playBackgroundMusic()
+	public static void scoreUp()
 	{
-		
+		score += 10;
+		scoreLabel.setText("Score: " + score);
 	}
 }
