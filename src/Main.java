@@ -17,6 +17,12 @@ public class Main extends JFrame /*implements actionListener*/
 		getContentPane().setBackground(Color.black);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setButtons();
+		addWindowListener(new WindowAdapter(){
+			public void windowOpened(WindowEvent e)
+			{
+				ZombieBite.playSound("./music/intro.wav");
+			}
+		});
 		
 	}
 	public void setButtons()

@@ -1,6 +1,8 @@
 import javax.swing.*;
+import sun.audio.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
 
 public class ZombieBite extends JFrame{
 	private Zombie[] zombie = {new Zombie() , new Zombie() , new Zombie() , new Zombie()};
@@ -8,8 +10,9 @@ public class ZombieBite extends JFrame{
 	private Timer gameTime;
 	private int zombieCounter = 0;
 	private int zombieBorn;
+	private int score = 0;
 	private JLabel scoreLabel = new JLabel("Score: 0");
-	private JLabel Name = new JLabel("Player: ");
+	private JLabel[] life;
 	
 	public ZombieBite()
 	{
@@ -26,15 +29,29 @@ public class ZombieBite extends JFrame{
 		setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
 				new ImageIcon("img\\cursor.png").getImage(),
 				new Point(0,0),"custom cursor"));
+		addMouseListener(new CustomMouseListener(){
+			public void mousePressed(MouseEvent e)
+			{
+				playSound("./music/gunshot.wav");
+			}
+		});
+		addWindowListener(new WindowAdapter(){
+			public void windowActivated(WindowEvent e)
+			{
+				playSound("./music/background.wav");
+			}
+		});
 		
 	}
 	public void setLabels()
 	{
-		//do this
+		scoreLabel.setBounds(0 , 0 ,500 , 100);
+		scoreLabel.setForeground(Color.red);
+		scoreLabel.setFont(new Font ("Tahoma", Font.BOLD,20));
+		add(scoreLabel);
 	}
 	public void initiateZombie()
 	{
-		//zombie.setBounds(zombiePosX, 353 ,300 , 400);
 		add(zombie[zombieCounter]);
 	}
 	public void setTimer()
@@ -54,14 +71,22 @@ public class ZombieBite extends JFrame{
 		{
 			for(int i = 0; i <= zombieBorn; i++)
 			{
-				zombie[i].walk();
+				if(score < 200)
+					zombie[i].walk();
+				else
+					zombie[i].walkAndJump();
 			}
 	    }
+		if(zombie[zombieCounter].isDead())
+		{
+			score += 10;
+			scoreLabel.setText("Score: " + score);
+		}
 		if(zombie[zombieCounter].kills() || zombie[zombieCounter].isDead())
 		{
 			zombie[zombieCounter].resurrect();
 		}
-		if(zombie[zombieCounter].position() > 200)
+		if(zombie[zombieCounter].XPosition() > 100)
 		{
 			try
 			{
@@ -76,6 +101,32 @@ public class ZombieBite extends JFrame{
 			}
 			
 		}
+		if(score==100 || score==200)
+		{
+			System.out.println(zombieBorn);
+			for(int i = 0 ; i<= zombieBorn; i++)
+				zombie[i].upgrade();
+			score += 10;
+		}
+		
+	}
+	public static void playSound(String fileName)
+	{
+	    InputStream in;
+	    try
+	    {
+	    	in = new FileInputStream(new File(fileName));
+	    	AudioStream audioStream = new AudioStream(in);
+	    	AudioPlayer.player.start(audioStream);
+	    }
+	    catch(Exception e)
+	    {
+	    	
+	    	
+	    }
+	}
+	public void playBackgroundMusic()
+	{
 		
 	}
 }
