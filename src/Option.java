@@ -47,6 +47,7 @@ public class Option extends JFrame {
 		{
 			
 		  setVisible(false);
+		  dispose();
 		  Main m1 =new Main();
 		}
 	});

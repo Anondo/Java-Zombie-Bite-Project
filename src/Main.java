@@ -58,6 +58,7 @@ public class Main extends JFrame /*implements actionListener*/
 			public void actionPerformed(ActionEvent e)
 			{
 				setVisible(false);
+				dispose();
 				ZombieBite game = new ZombieBite();
 			}
 		}

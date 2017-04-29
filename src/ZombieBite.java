@@ -155,6 +155,7 @@ public class ZombieBite extends JFrame{
 			backMusic.stop();
 			JOptionPane.showMessageDialog(null, "Game Over!!\nYour Score: " + score);
 			setVisible(false);
+			dispose();
 			new Main();
 		}
 		
