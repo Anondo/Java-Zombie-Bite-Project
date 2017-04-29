@@ -14,16 +14,17 @@ public class Main extends JFrame /*implements actionListener*/
 		setSize(1366,720);
 		setLayout(null);
 		setVisible(true);
-		getContentPane().setBackground(Color.black);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setButtons();
+		//getContentPane().setBackground(Color.black);
 		addWindowListener(new WindowAdapter(){
 			public void windowOpened(WindowEvent e)
 			{
-				ZombieBite.playSound("./music/intro.wav");
+				ZombieBite.playSound("");
 			}
 		});
-		
+		setContentPane(new JLabel(new ImageIcon("img\\mainbackground.png")));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setButtons();
+		setResizable(false);
 	}
 	public void setButtons()
 	{
@@ -33,8 +34,8 @@ public class Main extends JFrame /*implements actionListener*/
 		sGameButton.setFocusPainted(false);
 		sGameButton.setBorderPainted(true);
 		sGameButton.setBackground(Color.darkGray);
-		sGameButton.setFont(new Font ("Tahoma", Font.BOLD,15));
-		sGameButton.setBorder(BorderFactory.createBevelBorder(0,Color.magenta,Color.orange,Color.magenta,Color.orange));
+		sGameButton.setFont(new Font ("Bates Shower", Font.BOLD,15));
+		sGameButton.setBorder(BorderFactory.createBevelBorder(0,Color.red,Color.orange,Color.red,Color.orange));
 		sGameButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e)
 			{
@@ -51,8 +52,16 @@ public class Main extends JFrame /*implements actionListener*/
 		optionButton.setFocusPainted(false);
 		optionButton.setBorderPainted(true);
 		optionButton.setBackground(Color.darkGray);
-		optionButton.setFont(new Font ("Tahoma", Font.BOLD,15));
-		optionButton.setBorder(BorderFactory.createBevelBorder(0,Color.magenta,Color.orange,Color.magenta,Color.orange));
+		optionButton.setFont(new Font ("Bates Shower", Font.BOLD,15));
+		optionButton.setBorder(BorderFactory.createBevelBorder(0,Color.red,Color.orange,Color.red,Color.orange));
+		optionButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+				setVisible(false);
+				Option opt = new Option();
+			}
+		}
+		);
 		add(optionButton);
 		
 		/*Score Button*/
@@ -61,8 +70,8 @@ public class Main extends JFrame /*implements actionListener*/
 		scoreButton.setFocusPainted(false);
 		scoreButton.setBorderPainted(true);
 		scoreButton.setBackground(Color.darkGray);
-		scoreButton.setFont(new Font ("Tahoma", Font.BOLD,15));
-		scoreButton.setBorder(BorderFactory.createBevelBorder(0,Color.magenta,Color.orange,Color.magenta,Color.orange));
+		scoreButton.setFont(new Font ("Bates Shower", Font.BOLD,15));
+		scoreButton.setBorder(BorderFactory.createBevelBorder(0,Color.red,Color.orange,Color.red,Color.orange));
 		add(scoreButton);
 	}
 	

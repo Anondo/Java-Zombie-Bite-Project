@@ -5,11 +5,11 @@ import java.io.*;
 import sun.audio.*;
 
 public class Zombie extends JLabel{
-	private int zombiePosX = 10;
-	private int zombiePosY = 505;
-	private boolean dead = false;
-	private int zombieSpeed = 5;
-	private int initialSpeed = 5;
+	protected int zombiePosX = 10;
+	protected int zombiePosY = 560;
+	protected boolean dead = false;
+	protected int zombieSpeed = 5;
+	protected int initialSpeed = 5;
 	public Zombie()
 	{
 		super(new ImageIcon("img\\zombie.gif"));
@@ -19,6 +19,28 @@ public class Zombie extends JLabel{
 			{
 				ZombieBite.playSound("./music/gunshot.wav");
 				if(e.getY() < 8)
+				{
+					die();
+					dead = true;
+					ZombieBite.scoreUp();
+				}
+				else
+				{
+				   if(zombieSpeed > 1)	
+					zombieSpeed--;
+				}
+			}
+		});
+	}
+	public Zombie(String zombieFile)
+	{
+		super(new ImageIcon(zombieFile));
+		setBounds(zombiePosX , zombiePosY ,80 , 120);
+		addMouseListener(new CustomMouseListener(){
+			public void mousePressed(MouseEvent e)
+			{
+				ZombieBite.playSound("./music/gunshot.wav");
+				if(e.getY() > 37 && e.getY() < 73)
 				{
 					die();
 					dead = true;
@@ -48,7 +70,7 @@ public class Zombie extends JLabel{
 		{
 			zombiePosY += 5;
 			if(505 - zombiePosY < 5)
-				zombiePosY = 505;
+				zombiePosY = 560;
 		}
 			
 		setBounds(zombiePosX , zombiePosY , 80 , 120);
@@ -57,6 +79,7 @@ public class Zombie extends JLabel{
 	public void die()
 	{
 		setVisible(false);
+		roar();
 	}
 	public boolean kills()
 	{
@@ -88,5 +111,10 @@ public class Zombie extends JLabel{
 	{
 		zombieSpeed = initialSpeed + 5;
 		initialSpeed += 5;
+	}
+	public void roar()
+	{
+		
+		ZombieBite.playSound("./music/roar.wav");
 	}
 }
