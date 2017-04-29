@@ -6,7 +6,7 @@ import sun.audio.*;
 
 public class Zombie extends JLabel{
 	protected int zombiePosX = 10;
-	protected int zombiePosY = 560;
+	protected int zombiePosY = 567;
 	protected boolean dead = false;
 	protected int zombieSpeed = 5;
 	protected int initialSpeed = 5;
@@ -83,7 +83,7 @@ public class Zombie extends JLabel{
 	}
 	public boolean kills()
 	{
-		if(zombiePosX >= 1000)
+		if(zombiePosX >= 1100)
 			return true;
 		else
 			return false;

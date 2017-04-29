@@ -16,7 +16,17 @@ public class ZombieBite extends JFrame{
 	private int zombie2Born;
 	private static int score = 0;
 	private static JLabel scoreLabel = new JLabel("Score: 0");
-	private JLabel[] life;
+	private JLabel lifeLabel = new JLabel("Health: ");
+	private JLabel[] heart = new JLabel[10];
+	private int heartCounter = 9;
+	private Hero hero = new Hero();
+	private Timer backMusic = new Timer(30000 , new ActionListener(){
+		public void actionPerformed(ActionEvent e)
+		{
+			playSound("./music/background.wav");
+		}
+	}
+	);
 	
 	public ZombieBite()
 	{
@@ -29,6 +39,7 @@ public class ZombieBite extends JFrame{
 		initiateZombie();
 		setTimer();
 		setLabels();
+		add(hero);
 		timer1.start();
 		setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
 				new ImageIcon("img\\cursor.png").getImage(),
@@ -40,13 +51,29 @@ public class ZombieBite extends JFrame{
 			}
 		});
 		setResizable(false);
+		playSound("./music/background.wav");
+		startBackMusic();
 	}
 	public void setLabels()
 	{
 		scoreLabel.setBounds(0 , 0 ,500 , 100);
 		scoreLabel.setForeground(Color.red);
-		scoreLabel.setFont(new Font ("Tahoma", Font.BOLD,20));
+		scoreLabel.setFont(new Font ("Tahoma", Font.BOLD,50));
 		add(scoreLabel);
+		
+		lifeLabel.setBounds(0 , 100 ,500 , 100);
+		lifeLabel.setForeground(Color.red);
+		lifeLabel.setFont(new Font ("Tahoma", Font.BOLD,50));
+		add(lifeLabel);
+		
+		for(int i = 0 , x = 200; i < 10; i++ ,x+=60)
+		{
+			heart[i] = new JLabel(new ImageIcon("img\\life.png"));
+			heart[i].setBounds(x , 120 , 64,64);
+			add(heart[i]);
+		}
+		
+		
 	}
 	public void initiateZombie()
 	{
@@ -85,6 +112,12 @@ public class ZombieBite extends JFrame{
 					zombie[i].walkAndJump();
 			}
 	    }
+		if(zombie[zombieCounter].kills())
+		{
+			heart[heartCounter].setVisible(false);
+			heartCounter--;
+			hero.scream();
+		}
 		if(zombie[zombieCounter].kills() || zombie[zombieCounter].isDead())
 		{
 			zombie[zombieCounter].resurrect();
@@ -114,6 +147,15 @@ public class ZombieBite extends JFrame{
 			for(int i = 0 ; i<= zombieBorn; i++)
 				zombie[i].upgrade();
 			score += 10;
+		}
+		if(heartCounter < 0)
+		{
+			timer1.stop();
+			timer2.stop();
+			backMusic.stop();
+			JOptionPane.showMessageDialog(null, "Game Over!!\nYour Score: " + score);
+			setVisible(false);
+			new Main();
 		}
 		
 	}
@@ -146,6 +188,12 @@ public class ZombieBite extends JFrame{
 				zombie2[i].walk();
 			}
 	    }
+		if(zombie2[zombie2Counter].kills())
+		{
+			heart[heartCounter].setVisible(false);
+			heartCounter--;
+			hero.scream();
+		}
 		if(zombie2[zombie2Counter].kills() || zombie2[zombie2Counter].isDead())
 		{
 			zombie2[zombie2Counter].resurrect();
@@ -166,5 +214,9 @@ public class ZombieBite extends JFrame{
 			
 		}
 		
+	}
+	public void startBackMusic()
+	{
+		backMusic.start();
 	}
 }
