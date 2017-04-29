@@ -1,4 +1,5 @@
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -20,12 +21,16 @@ public class Zombie extends JLabel{
 				ZombieBite.playSound("./music/gunshot.wav");
 				if(e.getY() < 8)
 				{
+					ZombieBite.bleed(e.getX()+zombiePosX , e.getY()+zombiePosY );
+					ZombieBite.fire();
 					die();
 					dead = true;
 					ZombieBite.scoreUp();
 				}
 				else
 				{
+					ZombieBite.bleed(e.getX()+zombiePosX , e.getY()+zombiePosY );
+				   ZombieBite.fire();
 				   if(zombieSpeed > 1)	
 					zombieSpeed--;
 				}
@@ -42,12 +47,16 @@ public class Zombie extends JLabel{
 				ZombieBite.playSound("./music/gunshot.wav");
 				if(e.getY() > 37 && e.getY() < 73)
 				{
+					ZombieBite.bleed(e.getX()+zombiePosX , e.getY()+zombiePosY );
+					ZombieBite.fire();
 					die();
 					dead = true;
 					ZombieBite.scoreUp();
 				}
 				else
 				{
+					ZombieBite.bleed(e.getX()+zombiePosX , e.getY()+zombiePosY );
+					ZombieBite.fire();
 				   if(zombieSpeed > 1)	
 					zombieSpeed--;
 				}

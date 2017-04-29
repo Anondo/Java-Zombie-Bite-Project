@@ -1,32 +1,34 @@
 import javax.swing.*;
+
 import sun.audio.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 
 public class ZombieBite extends JFrame{
-	private Zombie[] zombie = {new Zombie() , new Zombie() , new Zombie() , new Zombie()};
-	private boolean play = true;
-	private Timer timer1;
-	private Timer timer2;
-	private int zombieCounter = 0;
-	private int zombieBorn;
-	private Zombie2[] zombie2 = {new Zombie2() , new Zombie2()  };
-	private int zombie2Counter;
-	private int zombie2Born;
-	private static int score = 0;
-	private static JLabel scoreLabel = new JLabel("Score: 0");
-	private JLabel lifeLabel = new JLabel("Health: ");
-	private JLabel[] heart = new JLabel[10];
-	private int heartCounter = 9;
-	private Hero hero = new Hero();
-	private Timer backMusic = new Timer(30000 , new ActionListener(){
+	private Zombie[] zombie = {new Zombie() , new Zombie() , new Zombie() , new Zombie()};// first wave of zombies,4 at a time
+	private Zombie2[] zombie2 = {new Zombie2() , new Zombie2()}; //second wave of zombies 2 at a time
+	private static Hero hero = new Hero(); //the main hero object made static so that it can be used in a static method
+	private boolean play = true; //this is just start playing flag
+	private Timer timer1; //thread for first wave of zombies and main gameplay
+	private Timer timer2; //thread for second wave of zombies
+	private Timer backMusic = new Timer(30000 , new ActionListener(){ //thread for playing background music like a loop
 		public void actionPerformed(ActionEvent e)
 		{
 			playSound("./music/background.wav");
 		}
-	}
-	);
+	});
+	private int zombieCounter = 0; //to track the current zombie
+	private int zombieBorn; //to keep track of the number of zombies produced
+	private int zombie2Counter; //same as the first one but for the second wave
+	private int zombie2Born; // same as the first one but for the second wave
+	private int heartCounter = 9; //to keep track
+	private static int score = 0; //to keep the score
+	private JLabel lifeLabel = new JLabel("Health: "); //displays health
+	private JLabel[] heart = new JLabel[10]; //each level will contain a heart image,10 so that hero gets bitten maximum 10times
+	private static JLabel scoreLabel = new JLabel("Score: 0"); //score displaying label
+	private static JLabel fire = new JLabel(new ImageIcon("img\\gunfire.png")); //the fire image when shots fired 
+	private static JLabel blood = new JLabel(new ImageIcon("img\\blood.gif")); //the blood image when shots fired on zombies
 	
 	public ZombieBite()
 	{
@@ -48,6 +50,7 @@ public class ZombieBite extends JFrame{
 			public void mousePressed(MouseEvent e)
 			{
 				playSound("./music/gunshot.wav");
+				fire();
 			}
 		});
 		setResizable(false);
@@ -72,12 +75,15 @@ public class ZombieBite extends JFrame{
 			heart[i].setBounds(x , 120 , 64,64);
 			add(heart[i]);
 		}
-		
+		fire.setVisible(false);
+		add(fire);
+		blood.setVisible(false);
+		add(blood);
 		
 	}
 	public void initiateZombie()
 	{
-		add(zombie[zombieCounter]);
+		add(zombie[zombieCounter]);  //adding the first zombie, the rest will be added with the flow of the game
 	}
 	public void setTimer()
 	{
@@ -219,5 +225,31 @@ public class ZombieBite extends JFrame{
 	public void startBackMusic()
 	{
 		backMusic.start();
+	}
+	public static void fire()
+	{
+		fire.setBounds(hero.getX()-45, hero.getY()-25 , 100 , 100);
+		fire.setVisible(true);
+		Timer t = new Timer(500 , new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+				fire.setVisible(false);
+			}
+		});
+		t.setRepeats(false);
+		t.start();
+	}
+	public static void bleed(int x , int y)
+	{
+		blood.setBounds(x, y , 50 ,50);
+		blood.setVisible(true);
+		Timer t = new Timer(500 , new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+				blood.setVisible(false);
+			}
+		});
+		t.setRepeats(false);
+		t.start();
 	}
 }

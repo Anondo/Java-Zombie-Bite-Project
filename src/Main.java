@@ -43,6 +43,13 @@ public class Main extends JFrame /*implements actionListener*/
 			}
 		}
 		);
+		addWindowListener(new WindowAdapter(){
+			public void windowClosed(WindowEvent e)
+			{
+				stopMusic();
+			}
+		}
+		);
 	}
 	public void setButtons()
 	{
