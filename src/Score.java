@@ -1,4 +1,5 @@
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -7,6 +8,7 @@ public class Score extends JFrame{
 	private JLabel heading = new JLabel("  Name------------------------------Score------------------------Date");
 	private int rowNumber;
 	private Database db = new Database();
+	private JButton clearButton = new JButton("CLEAR");
 	public Score()
 	{
 		super("Top 10 Scores");
@@ -19,13 +21,38 @@ public class Score extends JFrame{
 		data = new JLabel[rowNumber];
 		setData();
 		setVisible(true);
+		setLabels();
+		setButtons();
 		
+		
+	    
+		
+	}
+	public void setLabels()
+	{
 		heading.setBounds(0 , 0 , 780, 30);
 		heading.setFont(new Font ("Tahoma", Font.BOLD,20));
 		heading.setForeground(Color.red);
 		add(heading);
-	    
-		
+	}
+	public void setButtons()
+	{
+		clearButton.setBounds(300,520,150,60);
+		clearButton.setForeground(Color.green);
+		clearButton.setFocusPainted(false);
+		clearButton.setBorderPainted(true);
+		clearButton.setBackground(Color.darkGray);
+		clearButton.setFont(new Font ("Bates Shower", Font.BOLD,15));
+		clearButton.setBorder(BorderFactory.createBevelBorder(0,Color.red,Color.orange,Color.red,Color.orange));
+		clearButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+				db.clearData();
+				setVisible(false);
+			}
+		}
+		);
+		add(clearButton);
 	}
 	public void setData()
 	{

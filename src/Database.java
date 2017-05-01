@@ -44,6 +44,8 @@ public class Database {
     		rs = stmnt.executeQuery("select count(name) from players");
     		rs.next();
     		rows = rs.getInt(1);
+    		if(rows > 10)
+    			rows = 10;
     		return rows;
     	}
     	catch(Exception e)
@@ -69,6 +71,19 @@ public class Database {
     		JOptionPane.showMessageDialog(null, "Database Error");
     		System.out.println(e);
     		return "NULL";
+    	}
+    }
+    public void clearData()
+    {
+    	try
+    	{
+    		stmnt.execute("Delete From players;");
+    		new Score();
+    	}
+    	catch(Exception e)
+    	{
+    		JOptionPane.showMessageDialog(null, "Database Error");
+    		System.out.println(e);
     	}
     }
 }

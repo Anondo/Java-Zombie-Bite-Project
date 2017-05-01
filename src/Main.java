@@ -32,7 +32,6 @@ public class Main extends JFrame /*implements actionListener*/
 		setSize(1366,720);
 		setLayout(null);
 		setVisible(true);
-		//getContentPane().setBackground(Color.black);
 		setContentPane(new JLabel(new ImageIcon("img\\mainbackground.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setButtons();
