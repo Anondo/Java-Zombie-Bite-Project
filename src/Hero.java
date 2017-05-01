@@ -36,4 +36,13 @@ public class Hero extends JLabel{
 	{
 		ZombieBite.playSound("./music/scream.wav");
 	}
+	public void moveLeft()
+	{
+		heroPosX -= 5;
+	}
+	public void moveRight()
+	{
+		heroPosX += 5;
+	}
+	
 }

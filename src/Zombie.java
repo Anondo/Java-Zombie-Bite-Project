@@ -1,7 +1,7 @@
 import javax.swing.*;
-
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.geom.Area;
 import java.io.*;
 import sun.audio.*;
 
@@ -90,9 +90,11 @@ public class Zombie extends JLabel{
 		setVisible(false);
 		roar();
 	}
-	public boolean kills()
+	public boolean kills(Hero hero)
 	{
-		if(zombiePosX >= 1100)
+		Area zomArea = new Area(getBounds());
+		Area heroArea = new Area(hero.getBounds());
+		if(zomArea.intersects(heroArea.getBounds2D()))
 			return true;
 		else
 			return false;

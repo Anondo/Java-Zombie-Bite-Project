@@ -53,6 +53,15 @@ public class ZombieBite extends JFrame{
 				fire();
 			}
 		});
+		addKeyListener(new CustomKeyListener(){
+			public void keyPressed(KeyEvent e)
+			{
+				if(e.getKeyCode() == KeyEvent.VK_LEFT)
+					hero.moveLeft();
+				else if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+					hero.moveRight();
+			}
+		});
 		setResizable(false);
 		playSound("./music/background.wav");
 		startBackMusic();
@@ -118,13 +127,13 @@ public class ZombieBite extends JFrame{
 					zombie[i].walkAndJump();
 			}
 	    }
-		if(zombie[zombieCounter].kills())
+		if(zombie[zombieCounter].kills(hero))
 		{
 			heart[heartCounter].setVisible(false);
 			heartCounter--;
 			hero.scream();
 		}
-		if(zombie[zombieCounter].kills() || zombie[zombieCounter].isDead())
+		if(zombie[zombieCounter].kills(hero) || zombie[zombieCounter].isDead())
 		{
 			zombie[zombieCounter].resurrect();
 		}
@@ -199,13 +208,13 @@ public class ZombieBite extends JFrame{
 				zombie2[i].walk();
 			}
 	    }
-		if(zombie2[zombie2Counter].kills())
+		if(zombie2[zombie2Counter].kills(hero))
 		{
 			heart[heartCounter].setVisible(false);
 			heartCounter--;
 			hero.scream();
 		}
-		if(zombie2[zombie2Counter].kills() || zombie2[zombie2Counter].isDead())
+		if(zombie2[zombie2Counter].kills(hero) || zombie2[zombie2Counter].isDead())
 		{
 			zombie2[zombie2Counter].resurrect();
 		}
