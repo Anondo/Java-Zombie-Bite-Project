@@ -14,6 +14,8 @@ public class Main extends JFrame /*implements actionListener*/
 	private JButton sGameButton = new JButton("Start Game");
 	private JButton optionButton = new JButton("Options");
     private JButton scoreButton  = new JButton ("Score");
+    private JButton exitButton = new JButton("Quit");
+    private JButton aboutButton = new JButton("About");
     private AudioStream audioStream;
     private Timer music = new Timer(48000 , new ActionListener(){
     	public void actionPerformed(ActionEvent e)
@@ -26,6 +28,7 @@ public class Main extends JFrame /*implements actionListener*/
 	public Main()
 	{
 		super("Zombie-Bite");
+		Database db = new Database();
 		setSize(1366,720);
 		setLayout(null);
 		setVisible(true);
@@ -36,6 +39,9 @@ public class Main extends JFrame /*implements actionListener*/
 		setResizable(false);
 		playIntro();
 		startMusic();
+		setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
+				new ImageIcon("img\\hand.png").getImage(),
+				new Point(0,0),"custom cursor"));
 		addComponentListener(new ComponentAdapter(){
 			public void componentHidden(ComponentEvent e)
 			{
@@ -54,7 +60,7 @@ public class Main extends JFrame /*implements actionListener*/
 	public void setButtons()
 	{
 		/*Start Game Button*/
-		sGameButton.setBounds(600,450,150,60);
+		sGameButton.setBounds(600,390,150,60);
 		sGameButton.setForeground(Color.green);
 		sGameButton.setFocusPainted(false);
 		sGameButton.setBorderPainted(true);
@@ -73,7 +79,7 @@ public class Main extends JFrame /*implements actionListener*/
 		add(sGameButton);
 		
 		/*Option Button*/
-		optionButton.setBounds(600,520,150,60);
+		optionButton.setBounds(600,450,150,60);
 		optionButton.setForeground(Color.green);
 		optionButton.setFocusPainted(false);
 		optionButton.setBorderPainted(true);
@@ -83,7 +89,6 @@ public class Main extends JFrame /*implements actionListener*/
 		optionButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e)
 			{
-				setVisible(false);
 				Option opt = new Option();
 			}
 		}
@@ -91,14 +96,55 @@ public class Main extends JFrame /*implements actionListener*/
 		add(optionButton);
 		
 		/*Score Button*/
-		scoreButton.setBounds(600,590,150,60);
+		scoreButton.setBounds(600,510,150,60);
 		scoreButton.setForeground(Color.green);
 		scoreButton.setFocusPainted(false);
 		scoreButton.setBorderPainted(true);
 		scoreButton.setBackground(Color.darkGray);
 		scoreButton.setFont(new Font ("Bates Shower", Font.BOLD,15));
 		scoreButton.setBorder(BorderFactory.createBevelBorder(0,Color.red,Color.orange,Color.red,Color.orange));
+		scoreButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+				Score score = new Score();
+			}
+		}
+		);
 		add(scoreButton);
+		
+		/*About Button*/
+		aboutButton.setBounds(600, 570, 150, 60);
+		aboutButton.setForeground(Color.green);
+		aboutButton.setFocusPainted(false);
+		aboutButton.setBorderPainted(true);
+		aboutButton.setBackground(Color.darkGray);
+		aboutButton.setFont(new Font ("Bates Shower", Font.BOLD,15));
+		aboutButton.setBorder(BorderFactory.createBevelBorder(0,Color.red,Color.orange,Color.red,Color.orange));
+		aboutButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+				AboutZombie about = new AboutZombie();
+			}
+		});
+		
+		add(aboutButton);
+		
+		/*Exit Button*/
+		exitButton.setBounds(600, 630, 150, 60);
+		exitButton.setForeground(Color.green);
+		exitButton.setFocusPainted(false);
+		exitButton.setBorderPainted(true);
+		exitButton.setBackground(Color.darkGray);
+		exitButton.setFont(new Font ("Bates Shower", Font.BOLD,15));
+		exitButton.setBorder(BorderFactory.createBevelBorder(0,Color.red,Color.orange,Color.red,Color.orange));
+		exitButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+				System.exit(0);
+			}
+		});
+		
+		add(exitButton);
 	}
 	public void startMusic()
 	{

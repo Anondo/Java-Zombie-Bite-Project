@@ -1,5 +1,4 @@
 import javax.swing.*;
-
 import sun.audio.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -29,6 +28,7 @@ public class ZombieBite extends JFrame{
 	private static JLabel scoreLabel = new JLabel("Score: 0"); //score displaying label
 	private static JLabel fire = new JLabel(new ImageIcon("img\\gunfire.png")); //the fire image when shots fired 
 	private static JLabel blood = new JLabel(new ImageIcon("img\\blood.gif")); //the blood image when shots fired on zombies
+	private Database db = new Database();
 	
 	public ZombieBite()
 	{
@@ -162,6 +162,10 @@ public class ZombieBite extends JFrame{
 			JOptionPane.showMessageDialog(null, "Game Over!!\nYour Score: " + score);
 			setVisible(false);
 			dispose();
+			db.insert(Option.getPlayerName() , score);
+			hero = new Hero();
+			score = 0;
+			scoreLabel.setText("Score: " + score);
 			new Main();
 		}
 		

@@ -6,9 +6,10 @@ import java.io.*;
 
 public class Option extends JFrame {
 	
-	private JLabel optionLabel1 = new JLabel ("Player Name");
-	private JTextField nameField = new JTextField();
+	private JLabel optionLabel1 = new JLabel ("Player");
+	private JTextField nameField = new JTextField("Player");
 	private JButton saveBtn =new JButton("Save");
+	private static String name = "Player";
   
 	public Option()
   {
@@ -16,7 +17,8 @@ public class Option extends JFrame {
 	setSize(800,600);
 	setVisible(true);
 	setLayout(null);
-	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	setLocationRelativeTo(null);
+	setResizable(false);
 	getContentPane().setBackground(Color.black);
 	
 	/*Option Label*/
@@ -47,12 +49,15 @@ public class Option extends JFrame {
 		{
 			
 		  setVisible(false);
-		  dispose();
-		  Main m1 =new Main();
+		  name = nameField.getText();
 		}
 	});
 	add(saveBtn);
 	
 	  
+  }
+  public static String getPlayerName()
+  {
+	  return name;
   }
 }
