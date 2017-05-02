@@ -24,7 +24,7 @@ public class AboutZombie extends JFrame {
 		setLayout(null);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setContentPane(new JLabel(new ImageIcon("img\\scoreBack1.png")));
+		setContentPane(new JLabel(new ImageIcon("img\\score.png")));
 		setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
 				new ImageIcon("img\\hand.png").getImage(),
 				new Point(0,0),"custom cursor"));

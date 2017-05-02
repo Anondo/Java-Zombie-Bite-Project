@@ -18,7 +18,7 @@ public class Zombie extends JLabel{
 		addMouseListener(new CustomMouseListener(){
 			public void mousePressed(MouseEvent e)
 			{
-				ZombieBite.playSound("./music/gunshot.wav");
+				ZombieBite.playSound("./music/shotgun.wav");
 				if(e.getY() < 8)
 				{
 					ZombieBite.bleed(e.getX()+zombiePosX , e.getY()+zombiePosY );
@@ -44,7 +44,7 @@ public class Zombie extends JLabel{
 		addMouseListener(new CustomMouseListener(){
 			public void mousePressed(MouseEvent e)
 			{
-				ZombieBite.playSound("./music/gunshot.wav");
+				ZombieBite.playSound("./music/shotgun.wav");
 				if(e.getY() > 37 && e.getY() < 73)
 				{
 					ZombieBite.bleed(e.getX()+zombiePosX , e.getY()+zombiePosY );

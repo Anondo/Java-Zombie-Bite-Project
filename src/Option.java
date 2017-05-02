@@ -1,4 +1,5 @@
 import javax.swing.*;
+
 import sun.audio.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -36,7 +37,7 @@ public class Option extends JFrame {
 	nameField.setBorder(BorderFactory.createBevelBorder(0,Color.red,Color.orange,Color.red,Color.orange));
 	add(nameField);
 	
-	/**/
+	/*save button*/
 	saveBtn.setBounds(220,150, 150, 60);
 	saveBtn.setBackground(Color.darkGray);
 	saveBtn.setForeground(Color.red);
@@ -53,7 +54,9 @@ public class Option extends JFrame {
 		}
 	});
 	add(saveBtn);
-	
+	setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
+			new ImageIcon("img\\hand.png").getImage(),
+			new Point(0,0),"custom cursor"));
 	  
   }
   public static String getPlayerName()

@@ -23,6 +23,9 @@ public class Score extends JFrame{
 		setVisible(true);
 		setLabels();
 		setButtons();
+		setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
+				new ImageIcon("img\\hand.png").getImage(),
+				new Point(0,0),"custom cursor"));
 		
 		
 	    

@@ -49,7 +49,7 @@ public class ZombieBite extends JFrame{
 		addMouseListener(new CustomMouseListener(){
 			public void mousePressed(MouseEvent e)
 			{
-				playSound("./music/gunshot.wav");
+				playSound("./music/shotgun.wav");
 				fire();
 			}
 		});
