@@ -1,4 +1,4 @@
-# **Zombie Bite** [Download the game](https://github.com/Anondo/Java-Zombie-Bite-Project/raw/master/Setup%20File/Zombie%20Bite%20setup.exe) 
+# **Zombie Bite** 
 
 ![Opening Screen](https://github.com/Anondo/Java-Zombie-Bite-Project/blob/master/Screenshots/opening.png)
 <hr>
@@ -28,4 +28,7 @@ note: **DO NOT FORGET TO SHOOT THEM IN THE HEAD**.
 1. Imtiaz Ahmed
 <hr>
 
-[GET THE SOURCE CODE](https://github.com/Anondo/Java-Zombie-Bite-Project/archive/master.zip)<hr>
+[GET THE SOURCE CODE](https://github.com/Anondo/Java-Zombie-Bite-Project/archive/master.zip)
+<hr>
+[Download the game](https://github.com/Anondo/Java-Zombie-Bite-Project/raw/master/Setup%20File/Zombie%20Bite%20setup.exe) 
+<hr>
