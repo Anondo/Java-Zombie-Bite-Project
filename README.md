@@ -1,8 +1,8 @@
-#**Zombie Bite** 
+# **Zombie Bite** 
 
-![Opening Screen](https://raw.github.com/Anondo/Java-Zombie-Bite-Project/tree/master/Screenshots)
+![Opening Screen](https://raw.githubusercontent.com/Anondo/Java-Zombie-Bite-Project/tree/master/Screenshots)
 
-##**Description:**
+## **Description:**
 A kind of a platform game(though there are no real movements for the player :stuck_out_tongue_winking_eye:) built using 
 java's built-in gui library Swing. The game starts with Rick Grimes([see here](https://en.wikipedia.org/wiki/Rick_Grimes)) as the 
 hero taking on the waves of zombie attacks coming 4 at a time. The zombie speed increases as the players keeps scoring. They even 
