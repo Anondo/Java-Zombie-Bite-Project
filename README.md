@@ -30,5 +30,5 @@ note: **DO NOT FORGET TO SHOOT THEM IN THE HEAD**.
 
 [GET THE SOURCE CODE](https://github.com/Anondo/Java-Zombie-Bite-Project/archive/master.zip)
 <hr>
-[GET THE SOURCE CODE](https://github.com/Anondo/Java-Zombie-Bite-Project/archive/master.zip)
+![GET THE SOURCE CODE](https://github.com/Anondo/Java-Zombie-Bite-Project/archive/master.zip)
 <hr>
