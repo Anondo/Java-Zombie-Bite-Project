@@ -30,4 +30,5 @@ note: **DO NOT FORGET TO SHOOT THEM IN THE HEAD**.
 
 [GET THE SOURCE CODE](https://github.com/Anondo/Java-Zombie-Bite-Project/archive/master.zip)
 <hr>
+[DOWNLOAD THE GAME](https://github.com/Anondo/Java-Zombie-Bite-Project/archive/master/Setup/Setup.zip)
 
