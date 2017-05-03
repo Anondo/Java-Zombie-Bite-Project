@@ -6,21 +6,21 @@ public class Database {
 	private Connection con;
 	private Statement stmnt;
     private ResultSet rs;
-    final String JDBC_DRIVER="com.mysql.jdbc.Driver";
+    final String JDBC_DRIVER="org.sqlite.JDBC";
     private String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-    private String border = "----------------------------";
+    private String border = "--------------------------------------------------";
     
     public Database()
     {
     	try
     	{
     		Class.forName(JDBC_DRIVER);
-    		con = DriverManager.getConnection("jdbc:mysql://localhost/zombie bite" , "root" , "");
+    		con = DriverManager.getConnection("jdbc:sqlite:database\\zombie bite.db");
     		stmnt = con.createStatement();
     	}
     	catch(Exception e)
     	{
-    		JOptionPane.showMessageDialog(null, "Database connection could not be established");
+    		JOptionPane.showMessageDialog(null, "Database connection could not be established\nError: " + e);
     	}
     }
     public void insert(String name , int score)
@@ -28,11 +28,10 @@ public class Database {
     	try
     	{
     		stmnt.execute("insert into players values('"+ name + "',"+score+",'"+date+"');");
-    		stmnt.execute("commit;");
     	}
     	catch(Exception e)
     	{
-    		JOptionPane.showMessageDialog(null, "Database Error");
+    		JOptionPane.showMessageDialog(null, "Database Error: " + e);
     	}
     	
     }
@@ -50,8 +49,7 @@ public class Database {
     	}
     	catch(Exception e)
     	{
-    		JOptionPane.showMessageDialog(null, "Database Error");
-    		System.out.println(e);
+    		JOptionPane.showMessageDialog(null, "Database Error: " + e);
     		return 0;
     	}
     }
@@ -59,7 +57,7 @@ public class Database {
     {
     	try
     	{
-    		rs = stmnt.executeQuery("select rpad(name,35,'-'),score,lpad(date,35,'-') from players order by score desc limit 10");
+    		rs = stmnt.executeQuery("select substr(name ||'" + border+"',1,35),score,substr('"+border+"'||date,26,35) from players order by score desc limit 10");
     		for(int i = 0; i < index; i++)
     		{
     			rs.next();
@@ -68,8 +66,7 @@ public class Database {
     	}
     	catch(Exception e)
     	{
-    		JOptionPane.showMessageDialog(null, "Database Error");
-    		System.out.println(e);
+    		JOptionPane.showMessageDialog(null, "Database Error: " + e);
     		return "NULL";
     	}
     }
@@ -82,8 +79,7 @@ public class Database {
     	}
     	catch(Exception e)
     	{
-    		JOptionPane.showMessageDialog(null, "Database Error");
-    		System.out.println(e);
+    		JOptionPane.showMessageDialog(null, "Database Error: " + e);
     	}
     }
 }
