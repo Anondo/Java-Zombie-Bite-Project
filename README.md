@@ -1,6 +1,6 @@
 # **Zombie Bite** 
 
-![Opening Screen]( Java-Zombie-Bite-Project/Screenshots/opening.png )
+![Opening Screen](https://github.com/Anondo/Java-Zombie-Bite-Project/blob/master/Screenshots/opening.png)
 
 ## **Description:**
 A kind of a platform game(though there are no real movements for the player :stuck_out_tongue_winking_eye:) built using 
