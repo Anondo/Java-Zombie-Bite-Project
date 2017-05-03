@@ -1,4 +1,4 @@
-# **Zombie Bite** 
+# **Zombie Bite** [Download the game](https://github.com/Anondo/Java-Zombie-Bite-Project/raw/master/Setup%20File/Zombie%20Bite%20setup.exe) 
 
 ![Opening Screen](https://github.com/Anondo/Java-Zombie-Bite-Project/blob/master/Screenshots/opening.png)
 <hr>
