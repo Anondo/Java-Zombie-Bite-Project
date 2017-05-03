@@ -1,6 +1,7 @@
 # **Zombie Bite** 
 
-![Opening Screen](https://github.com/Anondo/Java-Zombie-Bite-Project/blob/master/Screenshots/opening.png)<hr>
+![Opening Screen](https://github.com/Anondo/Java-Zombie-Bite-Project/blob/master/Screenshots/opening.png)
+<hr>
 
 ## **Description:**
 A kind of a platform game(though there are no real movements for the player :stuck_out_tongue_winking_eye:) built using 
@@ -9,7 +10,8 @@ hero taking on the waves of zombie attacks coming 4 at a time. The zombie speed 
 starts to jump to avoid the bullets. A new breed of zombies starts to appear after the player have scored 150 or so. And an important
 note: **DO NOT FORGET TO SHOOT THEM IN THE HEAD**.
 
-![Game Play](https://github.com/Anondo/Java-Zombie-Bite-Project/blob/master/Screenshots/gameplay.png)<hr>
+![Game Play](https://github.com/Anondo/Java-Zombie-Bite-Project/blob/master/Screenshots/gameplay.png)
+<hr>
 
 ## **Features:**
 1. Sounds(background music , gameplay music , gunshots , zombie roars,  player scream)
