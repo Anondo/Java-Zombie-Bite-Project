@@ -1,5 +1,5 @@
 # **Zombie Bite** 
-### [DOWNLOAD THE GAME](https://github.com/Anondo/Java-Zombie-Bite-Project/archive/master/Setup/Setup.zip)
+### [DOWNLOAD THE GAME](https://github.com/Anondo/Java-Zombie-Bite-Project/raw/master/Setup/Zombie%20Bite%20setup.exe)
 
 ![Opening Screen](https://github.com/Anondo/Java-Zombie-Bite-Project/blob/master/Screenshots/opening.png)
 <hr>
