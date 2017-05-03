@@ -18,6 +18,11 @@ note: **DO NOT FORGET TO SHOOT THEM IN THE HEAD**.
 1. Extra Visuals(gunfire , zombie blood etc)
 <hr>
 
+## **Controls:**
+1. Left mouse click: to shoot
+1. Arrow keys: to move left & right
+<hr>
+
 ## **Developed By:**
 1. Ahmad [Anondo](https://github.com/Anondo) Anabil
 1. Imtiaz Ahmed
