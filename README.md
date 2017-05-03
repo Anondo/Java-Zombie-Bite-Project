@@ -1,4 +1,4 @@
-# **Zombie Bite** [DOWNLOAD THE GAME]([GET THE SOURCE CODE](https://github.com/Anondo/Java-Zombie-Bite-Project/archive/master/Setup/Setup.zip))
+# **Zombie Bite** [DOWNLOAD THE GAME](https://github.com/Anondo/Java-Zombie-Bite-Project/archive/master/Setup/Setup.zip)
 
 ![Opening Screen](https://github.com/Anondo/Java-Zombie-Bite-Project/blob/master/Screenshots/opening.png)
 <hr>
