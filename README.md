@@ -8,3 +8,14 @@ java's built-in gui library Swing. The game starts with Rick Grimes([see here](h
 hero taking on the waves of zombie attacks coming 4 at a time. The zombie speed increases as the players keeps scoring. They even 
 starts to jump to avoid the bullets. A new breed of zombies starts to appear after the player have scored 150 or so. And an important
 note: **DO NOT FORGET TO SHOOT THEM IN THE HEAD**.
+![Game Play](https://github.com/Anondo/Java-Zombie-Bite-Project/blob/master/Screenshots/gameplay.png)
+
+## ** Features:**
+1. Sounds(background music , gameplay music , gunshots , zombie roars,  player scream)
+1. Extra Visuals(gunfire , zombie blood etc)
+
+## **Developed By:**
+1. Ahmad [Anondo](https://github.com/Anondo) Anabil
+1. Imtiaz Ahmed
+
+[GET THE SOURCE CODE](https://github.com/Anondo/Java-Zombie-Bite-Project.git)
