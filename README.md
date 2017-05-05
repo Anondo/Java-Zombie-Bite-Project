@@ -27,6 +27,7 @@ note: **DO NOT FORGET TO SHOOT THEM IN THE HEAD**.
 ## **Developed By:**
 1. Ahmad [Anondo](https://github.com/Anondo)
 1. Imtiaz Ahmed
+1. Lionel Messi
 <hr>
 
 [GET THE SOURCE CODE](https://github.com/Anondo/Java-Zombie-Bite-Project/archive/master.zip)
